@@ -233,11 +233,40 @@ func testIfElse() {
 
 }
 
+func testFor() {
+	//sum := 0
+	//for i := 0; i < 20; i++ {
+	//	sum += i
+	//}
+	//fmt.Println(sum)
+
+	//sum := 0
+	//for sum < 100 {
+	//	sum += sum
+	//}
+	//fmt.Println(sum)
+
+	//strings := []string{"apples", "oranges", "bananas"}
+	//for i, s := range strings {
+	//	fmt.Println(i, s)
+	//}
+
+	map1 := make(map[string]float64)
+	map1["apple"] = 10000
+	map1["huawei"] = 5000
+	fmt.Println(map1)
+	for key, value := range map1 {
+		fmt.Println(key, value)
+	}
+
+}
+
 func main() {
 	//testPrint()
 	//testVar()
 	//testConst()
 	//testExp()
-	testIfElse()
+	//testIfElse()
+	testFor()
 
 }
