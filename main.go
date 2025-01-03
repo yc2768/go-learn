@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func testPrint() {
 	//字符拼接
@@ -101,10 +103,53 @@ func testConst() {
 	fmt.Println(a, b, c, d, e, f, g, h, i)
 }
 
+func testExp() {
+	//var a int = 100
+	//var b int = 200
+	//var c int = a + b
+	//fmt.Printf("%d\n", c)
+	//fmt.Printf("%d\n", a-b)
+	//fmt.Printf("%d\n", a*b)
+	//fmt.Printf("%d\n", a/b)
+	//fmt.Printf("%d\n", a%b)
+	//a++
+	//fmt.Printf("%d\n", a)
+	//b--
+	//fmt.Printf("%d\n", b)
+
+	//var a int = 20
+	//var b int = 21
+	//fmt.Println(a == b)
+	//fmt.Println(a < b)
+	//fmt.Println(a > b)
+	//fmt.Println(a <= b)
+	//fmt.Println(a >= b)
+
+	//var a bool = true
+	//var b bool = false
+	//fmt.Println(a && b, a || b, !a)
+
+	var a uint = 60
+	var b uint = 12
+	var c uint
+	c = a | b
+	fmt.Println(c)
+	c = a & b
+	fmt.Println(c)
+	c = a ^ b
+	fmt.Println(c)
+	c = a >> 2
+	fmt.Println(c)
+	c = a << 2
+	fmt.Println(c)
+
+}
+
 func main() {
 	//testPrint()
-
 	//testVar()
 	//testConst()
+
+	testExp()
 
 }
