@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func testPrint() {
@@ -145,11 +146,98 @@ func testExp() {
 
 }
 
+func testIfElse() {
+	//var score = 99
+	//if score > 90 {
+	//	fmt.Println("通过")
+	//} else {
+	//	fmt.Println("不通过")
+	//}
+
+	//var grade string = "B"
+	//var score int = 90
+	//switch score {
+	//case 90:
+	//	grade = "A"
+	//case 80:
+	//	grade = "B"
+	//case 50, 60, 70:
+	//	grade = "C"
+	//default:
+	//	grade = "D"
+	//}
+	//switch {
+	//case grade == "A":
+	//	fmt.Println("优秀")
+	//case grade == "B":
+	//	fmt.Println("良好")
+	//case grade == "C":
+	//	fmt.Println("及格")
+	//default:
+	//	fmt.Println("不及格")
+	//}
+
+	//var x interface{}
+	//switch x.(type) {
+	//case nil:
+	//	fmt.Println("nil")
+	//case int:
+	//	fmt.Println("int")
+	//case string:
+	//	fmt.Println("string")
+	//default:
+	//	fmt.Println("未知类型")
+	//}
+
+	ch1 := make(chan string)
+	ch2 := make(chan string)
+	go func() {
+		time.Sleep(3 * time.Second)
+		ch1 <- "来自通道1"
+	}()
+	go func() {
+		time.Sleep(2 * time.Second)
+		ch2 <- "来自通道2"
+	}()
+	for i := 0; i < 2; i++ {
+		select {
+		case msg1 := <-ch1:
+			fmt.Println(msg1)
+		case msg2 := <-ch2:
+			fmt.Println(msg2)
+		}
+	}
+
+	//ch1 := make(chan string)
+	//ch2 := make(chan string)
+	//go func() {
+	//	for {
+	//		ch1 <- "one"
+	//	}
+	//}()
+	//go func() {
+	//	for {
+	//		ch2 <- "two"
+	//	}
+	//}()
+	//for {
+	//	select {
+	//	case msg1 := <-ch1:
+	//		fmt.Println("msg1:" + msg1)
+	//	case msg2 := <-ch2:
+	//		fmt.Println("msg2:" + msg2)
+	//	default:
+	//		fmt.Println("no message received")
+	//	}
+	//}
+
+}
+
 func main() {
 	//testPrint()
 	//testVar()
 	//testConst()
-
-	testExp()
+	//testExp()
+	testIfElse()
 
 }
