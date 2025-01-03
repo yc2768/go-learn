@@ -63,10 +63,48 @@ func testVar() {
 		d2 bool
 	)
 	fmt.Println(d1, d2)
+
+	var e1 = 2
+	var e2 = &e1
+	fmt.Println(e2, *e2, &e2)
+}
+
+func testConst() {
+	const LENGTH int = 100
+	fmt.Println(LENGTH)
+
+	const (
+		Unknown = 0
+		Femal   = 1
+		Male    = 2
+	)
+	fmt.Println(Unknown, Femal, Male)
+
+	const (
+		A = iota
+		B
+		C
+	)
+	fmt.Println(A, B, C)
+
+	const (
+		a = iota //0
+		b        //1
+		c        //2
+		d = "ha" //独立值，iota += 1
+		e        //"ha"   iota += 1
+		f = 100  //iota +=1
+		g        //100  iota +=1
+		h = iota //7,恢复计数
+		i        //8
+	)
+	fmt.Println(a, b, c, d, e, f, g, h, i)
 }
 
 func main() {
 	//testPrint()
 
 	//testVar()
+	//testConst()
+
 }
