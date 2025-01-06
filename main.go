@@ -465,9 +465,15 @@ func main() {
 	//msg := <-ch //接收
 	//fmt.Println(msg)
 
-	ch := make(chan int)
-	go sendData(ch) // 启动发送数据的 goroutine
-	receiveData(ch) // 接收数据
+	//ch := make(chan int)
+	//go sendData(ch) // 启动发送数据的 goroutine
+	//receiveData(ch) // 接收数据
+
+	//测试接口
+	r1 := Rectangle{Width: 10, Height: 20}
+	var sh1 Shape = r1
+	fmt.Println(sh1.Area())
+
 }
 
 func receiveData(ch <-chan int) {
@@ -482,4 +488,16 @@ func sendData(ch chan<- int) {
 		ch <- i // 发送数据
 	}
 	close(ch) // 关闭通道，通知接收方没有更多数据
+}
+
+type Shape interface {
+	Area() float64
+}
+type Rectangle struct {
+	Width  float64
+	Height float64
+}
+
+func (r Rectangle) Area() float64 {
+	return r.Height * r.Width
 }
