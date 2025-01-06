@@ -366,11 +366,22 @@ func main() {
 	//}
 
 	//指向指针的指针变量
-	var a int = 20
-	var ptr *int = &a
-	var pptr **int = &ptr
-	fmt.Println(a)
-	fmt.Println(*ptr)
-	fmt.Println(**pptr)
+	//var a int = 20
+	//var ptr *int = &a
+	//var pptr **int = &ptr
+	//fmt.Println(a)
+	//fmt.Println(*ptr)
+	//fmt.Println(**pptr)
+
+	//结构体
+	type Books struct {
+		title   string
+		author  string
+		subject string
+	}
+	book := Books{"红楼梦", "曹雪芹", "四大名著"}
+	book1 := Books{title: "红楼梦", author: "曹雪芹", subject: "四大名著"}
+	book2 := Books{title: "红楼梦", author: "曹雪芹"}
+	fmt.Println(book, book1, book2, book2.title)
 
 }
