@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"time"
 )
 
@@ -273,6 +274,14 @@ func getSeqence() func() int {
 	}
 }
 
+type Circle struct {
+	radius float64
+}
+
+func (c Circle) area() float64 {
+	return math.Pi * c.radius * c.radius
+}
+
 func main() {
 	//testPrint()
 	//testVar()
@@ -290,17 +299,21 @@ func main() {
 	//fmt.Println(nextNumber1())
 	//fmt.Println(nextNumber1())
 
-	add := func(a, b int) int {
-		return a + b
-	}
+	//add := func(a, b int) int {
+	//	return a + b
+	//}
+	//
+	//multiply := func(a, b int) int {
+	//	return a * b
+	//}
+	//calculate := func(operation func(int, int) int, x, y int) int {
+	//	return operation(x, y)
+	//}
+	//fmt.Println(calculate(add, 1, 2))
+	//fmt.Println(calculate(multiply, 2, 2))
 
-	multiply := func(a, b int) int {
-		return a * b
-	}
-	calculate := func(operation func(int, int) int, x, y int) int {
-		return operation(x, y)
-	}
-	fmt.Println(calculate(add, 1, 2))
-	fmt.Println(calculate(multiply, 2, 2))
+	var c1 Circle
+	c1 = Circle{radius: 5}
+	fmt.Println(c1.area())
 
 }
