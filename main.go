@@ -383,5 +383,9 @@ func main() {
 	book1 := Books{title: "红楼梦", author: "曹雪芹", subject: "四大名著"}
 	book2 := Books{title: "红楼梦", author: "曹雪芹"}
 	fmt.Println(book, book1, book2, book2.title)
+	//结构体指针
+	var ptr *Books
+	ptr = &book1
+	fmt.Println((*ptr).subject)
 
 }
