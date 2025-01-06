@@ -418,12 +418,24 @@ func main() {
 	//	fmt.Println(k, v)
 	//}
 	//通道
-	ch1 := make(chan int, 2)
-	ch1 <- 2
-	ch1 <- 3
-	close(ch1)
-	for v := range ch1 {
-		fmt.Println(v)
-	}
+	//ch1 := make(chan int, 2)
+	//ch1 <- 2
+	//ch1 <- 3
+	//close(ch1)
+	//for v := range ch1 {
+	//	fmt.Println(v)
+	//}
+
+	//创建空map
+	m1 := make(map[string]int)
+	fmt.Println(m1)
+	//创建一个初始容量为 2 的 Map
+	m2 := make(map[string]int, 2)
+	fmt.Println(m2)
+	m3 := map[string]int{"apple": 10, "orange": 20}
+	v1 := m3["apple"]
+	m3["apple"] = 56
+	delete(m3, "orange")
+	fmt.Println(m3, v1, len(m3))
 
 }
