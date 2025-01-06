@@ -265,6 +265,14 @@ func swap(x, y string) (string, string) {
 	return y, x
 }
 
+func getSeqence() func() int {
+	i := 0
+	return func() int {
+		i += 1
+		return i
+	}
+}
+
 func main() {
 	//testPrint()
 	//testVar()
@@ -272,6 +280,13 @@ func main() {
 	//testExp()
 	//testIfElse()
 	//testFor()
-	y, x := swap("nihao", "Go")
-	fmt.Println(y, x)
+	//y, x := swap("nihao", "Go")
+	//fmt.Println(y, x)
+
+	nextNumber := getSeqence()
+	fmt.Println(nextNumber())
+	fmt.Println(nextNumber())
+	nextNumber1 := getSeqence()
+	fmt.Println(nextNumber1())
+	fmt.Println(nextNumber1())
 }
