@@ -1,9 +1,9 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"math"
+	"sync"
 	"time"
 )
 
@@ -495,17 +495,63 @@ func main() {
 	//var i interface{}
 	//fmt.Println(i == nil) // 输出：true
 
-	err := errors.New("err")
-	fmt.Println(err.Error())
+	//err := errors.New("err")
+	//fmt.Println(err.Error())
+	//
+	//defer func() {
+	//	if err := recover(); err != nil {
+	//		fmt.Println("捕获panic错误")
+	//	}
+	//}()
+	//
+	//panic(err)
 
-	defer func() {
-		if err := recover(); err != nil {
-			fmt.Println("捕获panic错误")
-		}
-	}()
+	//不带缓冲区的通道
+	//s := []int{7, 2, 8, -9, 4, 0}
+	//c := make(chan int)
+	//go sum1(s[:len(s)/2], c)
+	//go sum1(s[len(s)/2:], c)
+	//x, y := <-c, <-c // 从通道 c 中接收
+	//fmt.Println(x, y, x+y)
 
-	panic(err)
+	//带缓冲区通道
+	//ch1 := make(chan string, 2)
+	//ch1 <- "hello"
+	//ch1 <- "world"
+	//fmt.Println(<-ch1)
+	//fmt.Println(<-ch1)
 
+	var wg sync.WaitGroup
+	for i := 0; i < 10; i++ {
+		wg.Add(1)
+		go work(i, &wg)
+	}
+	wg.Wait()
+	fmt.Println(counter)
+}
+
+var (
+	counter int
+	mu      sync.Mutex
+)
+
+func work(id int, wg *sync.WaitGroup) {
+	defer wg.Done()
+	fmt.Println("work start")
+	mu.Lock()
+	counter++
+	mu.Unlock()
+	fmt.Println("work end")
+}
+
+func sum1(s []int, c chan int) {
+	sum := 0
+	fmt.Println(s)
+	for _, v := range s {
+		fmt.Println(v)
+		sum += v
+	}
+	c <- sum // 把 sum 发送到通道 c
 }
 
 func receiveData(ch <-chan int) {
