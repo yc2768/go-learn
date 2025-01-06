@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"strconv"
 	"time"
 )
 
@@ -427,15 +428,25 @@ func main() {
 	//}
 
 	//创建空map
-	m1 := make(map[string]int)
-	fmt.Println(m1)
-	//创建一个初始容量为 2 的 Map
-	m2 := make(map[string]int, 2)
-	fmt.Println(m2)
-	m3 := map[string]int{"apple": 10, "orange": 20}
-	v1 := m3["apple"]
-	m3["apple"] = 56
-	delete(m3, "orange")
-	fmt.Println(m3, v1, len(m3))
+	//m1 := make(map[string]int)
+	//fmt.Println(m1)
+	////创建一个初始容量为 2 的 Map
+	//m2 := make(map[string]int, 2)
+	//fmt.Println(m2)
+	//m3 := map[string]int{"apple": 10, "orange": 20}
+	//v1 := m3["apple"]
+	//m3["apple"] = 56
+	//delete(m3, "orange")
+	//fmt.Println(m3, v1, len(m3))
+
+	//类型转换
+	//var a int = 10
+	//var b float64 = float64(a)
+	//fmt.Println(b)
+
+	var str string = "10"
+	var num int
+	num, _ = strconv.Atoi(str)
+	fmt.Println(num)
 
 }
