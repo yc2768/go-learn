@@ -261,12 +261,17 @@ func testFor() {
 
 }
 
+func swap(x, y string) (string, string) {
+	return y, x
+}
+
 func main() {
 	//testPrint()
 	//testVar()
 	//testConst()
 	//testExp()
 	//testIfElse()
-	testFor()
-
+	//testFor()
+	y, x := swap("nihao", "Go")
+	fmt.Println(y, x)
 }
