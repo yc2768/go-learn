@@ -335,17 +335,42 @@ func main() {
 	//c = sum(a, b)
 	//fmt.Printf("main()函数中 c = %d\n", c)
 
-	var numbers = [4]int{1, 2, 3, 4}
-	numbers1 := [4]int{4, 5, 6, 7}
-	fmt.Println(numbers)
-	fmt.Println(numbers1)
+	//var numbers = [4]int{1, 2, 3, 4}
+	//numbers1 := [4]int{4, 5, 6, 7}
+	//fmt.Println(numbers)
+	//fmt.Println(numbers1)
+	//
+	//var blance = [...]float32{1.0, 2.0}
+	//blance1 := [...]float32{3.0, 4.0}
+	//balance2 := [5]float32{1: 2.0, 3: 7.0}
+	//fmt.Println(blance, blance1, balance2)
+	//for i := 0; i < len(numbers); i++ {
+	//	fmt.Println(numbers[i])
+	//}
 
-	var blance = [...]float32{1.0, 2.0}
-	blance1 := [...]float32{3.0, 4.0}
-	balance2 := [5]float32{1: 2.0, 3: 7.0}
-	fmt.Println(blance, blance1, balance2)
-	for i := 0; i < len(numbers); i++ {
-		fmt.Println(numbers[i])
-	}
+	//指针
+	/*var a int = 10
+	var p *int = &a
+	fmt.Println(*p, p, &a)*/
+
+	//指针数组
+	//const MAX int = 3
+	//arr := [3]int{10, 100, 200}
+	//var i int
+	//var ptr [MAX]*int
+	//for i = 0; i < MAX; i++ {
+	//	ptr[i] = &arr[i]
+	//}
+	//for i = 0; i < MAX; i++ {
+	//	fmt.Println(ptr[i], *ptr[i])
+	//}
+
+	//指向指针的指针变量
+	var a int = 20
+	var ptr *int = &a
+	var pptr **int = &ptr
+	fmt.Println(a)
+	fmt.Println(*ptr)
+	fmt.Println(**pptr)
 
 }
