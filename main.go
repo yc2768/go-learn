@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"math"
-	"strconv"
 	"time"
 )
 
@@ -444,9 +443,43 @@ func main() {
 	//var b float64 = float64(a)
 	//fmt.Println(b)
 
-	var str string = "10"
-	var num int
-	num, _ = strconv.Atoi(str)
-	fmt.Println(num)
+	//var str string = "10"
+	//var num int
+	//num, _ = strconv.Atoi(str)
+	//fmt.Println(num)
 
+	//发送通道
+	//var sendCh chan<- int // 只允许发送 int 类型数据
+	//fmt.Println(sendCh)
+	//var recvCh <-chan int // 只允许接收 int 类型数据
+	//fmt.Println(recvCh)
+	//var bothCh chan int // 既可以发送也可以接收 int 类型数据
+	//fmt.Println(bothCh)
+
+	// 创建一个双向通道
+	//ch := make(chan int)
+	//go func() {
+	//	//发送
+	//	ch <- 10
+	//}()
+	//msg := <-ch //接收
+	//fmt.Println(msg)
+
+	ch := make(chan int)
+	go sendData(ch) // 启动发送数据的 goroutine
+	receiveData(ch) // 接收数据
+}
+
+func receiveData(ch <-chan int) {
+	for v := range ch {
+		fmt.Println(v)
+	}
+	fmt.Println("接收完毕，通道已关闭。")
+}
+
+func sendData(ch chan<- int) {
+	for i := 0; i < 10; i++ {
+		ch <- i // 发送数据
+	}
+	close(ch) // 关闭通道，通知接收方没有更多数据
 }
