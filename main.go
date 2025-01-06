@@ -389,7 +389,7 @@ func main() {
 	//fmt.Println((*ptr).subject)
 
 	//切片
-	var numbers = make([]int, 3, 5)
+	/*var numbers = make([]int, 3, 5)
 	numbers1 := make([]int, 3, 5)
 	numbers[0] = 1
 	numbers2 := []int{4, 5, 6, 7}
@@ -399,6 +399,31 @@ func main() {
 	fmt.Println(numbers1)
 	numbersCopy := make([]int, len(numbers1)*2, cap(numbers1)*2)
 	copy(numbersCopy, numbers1)
-	fmt.Println(numbersCopy)
+	fmt.Println(numbersCopy)*/
+
+	//遍历切片
+	//number := []int{1, 2, 3}
+	//for i, v := range number {
+	//	fmt.Println(i, v)
+	//}
+	//遍历字符串
+	//for i, v := range "hello" {
+	//	fmt.Printf("i=%d, v=%s\n", i, string(v))
+	//}
+	//map
+	//map1 := make(map[string]int)
+	//map1["apple"] = 10000
+	//map1["banana"] = 5000
+	//for k, v := range map1 {
+	//	fmt.Println(k, v)
+	//}
+	//通道
+	ch1 := make(chan int, 2)
+	ch1 <- 2
+	ch1 <- 3
+	close(ch1)
+	for v := range ch1 {
+		fmt.Println(v)
+	}
 
 }
