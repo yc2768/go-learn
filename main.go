@@ -283,10 +283,24 @@ func main() {
 	//y, x := swap("nihao", "Go")
 	//fmt.Println(y, x)
 
-	nextNumber := getSeqence()
-	fmt.Println(nextNumber())
-	fmt.Println(nextNumber())
-	nextNumber1 := getSeqence()
-	fmt.Println(nextNumber1())
-	fmt.Println(nextNumber1())
+	//nextNumber := getSeqence()
+	//fmt.Println(nextNumber())
+	//fmt.Println(nextNumber())
+	//nextNumber1 := getSeqence()
+	//fmt.Println(nextNumber1())
+	//fmt.Println(nextNumber1())
+
+	add := func(a, b int) int {
+		return a + b
+	}
+
+	multiply := func(a, b int) int {
+		return a * b
+	}
+	calculate := func(operation func(int, int) int, x, y int) int {
+		return operation(x, y)
+	}
+	fmt.Println(calculate(add, 1, 2))
+	fmt.Println(calculate(multiply, 2, 2))
+
 }
