@@ -282,6 +282,17 @@ func (c Circle) area() float64 {
 	return math.Pi * c.radius * c.radius
 }
 
+/* 声明全局变量 */
+var a int = 20
+
+/* 函数定义-两数相加 */
+func sum(a, b int) int {
+	fmt.Printf("sum() 函数中 a = %d\n", a)
+	fmt.Printf("sum() 函数中 b = %d\n", b)
+
+	return a + b
+}
+
 func main() {
 	//testPrint()
 	//testVar()
@@ -312,8 +323,17 @@ func main() {
 	//fmt.Println(calculate(add, 1, 2))
 	//fmt.Println(calculate(multiply, 2, 2))
 
-	var c1 Circle
-	c1 = Circle{radius: 5}
-	fmt.Println(c1.area())
+	//var c1 Circle
+	//c1 = Circle{radius: 5}
+	//fmt.Println(c1.area())
+
+	/* main 函数中声明局部变量 */
+	var a int = 10
+	var b int = 20
+	var c int = 0
+
+	fmt.Printf("main()函数中 a = %d\n", a)
+	c = sum(a, b)
+	fmt.Printf("main()函数中 c = %d\n", c)
 
 }
