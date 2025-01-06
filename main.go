@@ -477,12 +477,22 @@ func main() {
 	//testPrintInterface(1)
 	//testPrintInterface("hello")
 
-	var i interface{} = 66
-	if str, ok := i.(string); ok {
-		fmt.Println(str)
-	} else {
-		fmt.Println("不是字符串")
-	}
+	//var i interface{} = 66
+	//if str, ok := i.(string); ok {
+	//	fmt.Println(str)
+	//} else {
+	//	fmt.Println("不是字符串")
+	//}
+
+	//组合接口
+	//file := File{}
+	//var rw ReadWrite
+	//rw = file
+	//fmt.Println(rw.Read())
+	//fmt.Println(rw.Write("Go"))
+
+	var i interface{}
+	fmt.Println(i == nil) // 输出：true
 
 }
 
@@ -514,4 +524,28 @@ func (r Rectangle) Area() float64 {
 
 func testPrintInterface(val interface{}) {
 	fmt.Printf("type: %T  Value:%v\n", val, val)
+}
+
+type Reader interface {
+	Read() string
+}
+
+type Writer interface {
+	Write(data string) string
+}
+
+type ReadWrite interface {
+	Reader
+	Writer
+}
+
+type File struct {
+}
+
+func (file File) Read() string {
+	return "Read File!"
+}
+func (file File) Write(data string) string {
+	fmt.Println("Write File %v!", data)
+	return data + " Write"
 }
