@@ -470,9 +470,19 @@ func main() {
 	//receiveData(ch) // 接收数据
 
 	//测试接口
-	r1 := Rectangle{Width: 10, Height: 20}
-	var sh1 Shape = r1
-	fmt.Println(sh1.Area())
+	//r1 := Rectangle{Width: 10, Height: 20}
+	//var sh1 Shape = r1
+	//fmt.Println(sh1.Area())
+
+	//testPrintInterface(1)
+	//testPrintInterface("hello")
+
+	var i interface{} = 66
+	if str, ok := i.(string); ok {
+		fmt.Println(str)
+	} else {
+		fmt.Println("不是字符串")
+	}
 
 }
 
@@ -500,4 +510,8 @@ type Rectangle struct {
 
 func (r Rectangle) Area() float64 {
 	return r.Height * r.Width
+}
+
+func testPrintInterface(val interface{}) {
+	fmt.Printf("type: %T  Value:%v\n", val, val)
 }
