@@ -374,18 +374,31 @@ func main() {
 	//fmt.Println(**pptr)
 
 	//结构体
-	type Books struct {
-		title   string
-		author  string
-		subject string
-	}
-	book := Books{"红楼梦", "曹雪芹", "四大名著"}
-	book1 := Books{title: "红楼梦", author: "曹雪芹", subject: "四大名著"}
-	book2 := Books{title: "红楼梦", author: "曹雪芹"}
-	fmt.Println(book, book1, book2, book2.title)
-	//结构体指针
-	var ptr *Books
-	ptr = &book1
-	fmt.Println((*ptr).subject)
+	//type Books struct {
+	//	title   string
+	//	author  string
+	//	subject string
+	//}
+	//book := Books{"红楼梦", "曹雪芹", "四大名著"}
+	//book1 := Books{title: "红楼梦", author: "曹雪芹", subject: "四大名著"}
+	//book2 := Books{title: "红楼梦", author: "曹雪芹"}
+	//fmt.Println(book, book1, book2, book2.title)
+	////结构体指针
+	//var ptr *Books
+	//ptr = &book1
+	//fmt.Println((*ptr).subject)
+
+	//切片
+	var numbers = make([]int, 3, 5)
+	numbers1 := make([]int, 3, 5)
+	numbers[0] = 1
+	numbers2 := []int{4, 5, 6, 7}
+	var numbers3 []int
+	fmt.Println(numbers, numbers1, numbers1[1:], numbers2, len(numbers1), cap(numbers1), numbers3)
+	numbers1 = append(numbers1, 6, 8, 10)
+	fmt.Println(numbers1)
+	numbersCopy := make([]int, len(numbers1)*2, cap(numbers1)*2)
+	copy(numbersCopy, numbers1)
+	fmt.Println(numbersCopy)
 
 }
