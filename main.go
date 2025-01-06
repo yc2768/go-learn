@@ -328,12 +328,24 @@ func main() {
 	//fmt.Println(c1.area())
 
 	/* main 函数中声明局部变量 */
-	var a int = 10
-	var b int = 20
-	var c int = 0
+	//var a int = 10
+	//var b int = 20
+	//var c int = 0
+	//fmt.Printf("main()函数中 a = %d\n", a)
+	//c = sum(a, b)
+	//fmt.Printf("main()函数中 c = %d\n", c)
 
-	fmt.Printf("main()函数中 a = %d\n", a)
-	c = sum(a, b)
-	fmt.Printf("main()函数中 c = %d\n", c)
+	var numbers = [4]int{1, 2, 3, 4}
+	numbers1 := [4]int{4, 5, 6, 7}
+	fmt.Println(numbers)
+	fmt.Println(numbers1)
+
+	var blance = [...]float32{1.0, 2.0}
+	blance1 := [...]float32{3.0, 4.0}
+	balance2 := [5]float32{1: 2.0, 3: 7.0}
+	fmt.Println(blance, blance1, balance2)
+	for i := 0; i < len(numbers); i++ {
+		fmt.Println(numbers[i])
+	}
 
 }
