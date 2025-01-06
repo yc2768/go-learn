@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"math"
 	"time"
@@ -491,8 +492,19 @@ func main() {
 	//fmt.Println(rw.Read())
 	//fmt.Println(rw.Write("Go"))
 
-	var i interface{}
-	fmt.Println(i == nil) // 输出：true
+	//var i interface{}
+	//fmt.Println(i == nil) // 输出：true
+
+	err := errors.New("err")
+	fmt.Println(err.Error())
+
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println("捕获panic错误")
+		}
+	}()
+
+	panic(err)
 
 }
 
